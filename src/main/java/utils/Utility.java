@@ -468,7 +468,97 @@ public class Utility {
 		prop.load(reader);
 		return prop.getProperty(value);
 	}
+
+	public static String getDate_CR58_TestCase_01(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_01.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_02(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_02.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_03(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_03.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_04(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_04.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_05(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_05.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_06(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_06.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_07(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_07.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_08(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_08.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_09(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_09.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_10(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_10.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
 	
 	
+	public static String getDate_CR58_TestCase_11(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_11.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_12(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_12.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
+	
+	public static String getDate_CR58_TestCase_13(String value) throws IOException {
+		Properties prop = new Properties();
+		FileReader reader=new FileReader("CR58_TestCase_13.properties");  
+		prop.load(reader);
+		return prop.getProperty(value);
+	}
 	
 }

@@ -21,8 +21,9 @@ public class TestCase2_F extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -101,9 +102,9 @@ public class TestCase2_F extends BaseTest {
 		String medicaidDrawerContent = Utility.getFromTextProperties("medicaidDrawerContent");
 		String notIncludeDrawerContent = Utility.getFromTextProperties("notIncludeDrawerContent");
 		String removeSomeOneDrawerContent = Utility.getFromTextProperties("removeSomeOneDrawerContent");
-		String s012Question = "What is " + applicantFullName + "'s " + Utility.getFromTextProperties("s012Question");
-		String s012QuestionSpouse = "What is " + spouseFullName + "'s " + Utility.getFromTextProperties("s012Question");
-		String s012QuestionChild = "What is " + childFullName + "'s " + Utility.getFromTextProperties("s012Question");
+		String s012Question = "What is " + applicantFullName + "' " + Utility.getFromTextProperties("s012Question");
+		String s012QuestionSpouse = "What is " + spouseFullName + "' " + Utility.getFromTextProperties("s012Question");
+		String s012QuestionChild = "What is " + childFullName + "' " + Utility.getFromTextProperties("s012Question");
 		String s012SameNameQuestion = "Is " + spouseFullName + " "
 				+ Utility.getFromTextProperties("s012SameNameQuestion");
 		String s012SameNameQuestionFemale = "Is " + applicantFullName + " "
@@ -116,9 +117,9 @@ public class TestCase2_F extends BaseTest {
 		String s010AQuestion = Utility.getFromTextProperties("s010AQuestion");
 		String s010ADrawerHeading = Utility.getFromTextProperties("s010ADrawerHeading");
 		String s010ADrawerContent = Utility.getFromTextProperties("s010ADrawerContent");
-		String s026Question = "What’s" + " " + applicantFullName + "'s" + " "
+		String s026Question = "What’s" + " " + applicantFullName + "'" + " "
 				+ Utility.getFromTextProperties("s026Question");
-		String s026QuestionChild = "What’s" + " " + childFullName + "'s" + " "
+		String s026QuestionChild = "What’s" + " " + childFullName + "'" + " "
 				+ Utility.getFromTextProperties("s026Question");
 		String s026DrawerContent = Utility.getFromTextProperties("s026DrawerContent");
 		String s026DrawerHeading = Utility.getFromTextProperties("s026DrawerHeading");
@@ -179,9 +180,9 @@ public class TestCase2_F extends BaseTest {
 		String s069DDrowerContent = Utility.getFromTextProperties("s069DDrowerContent");
 		String s070Question = Utility.getFromTextProperties("s070Question");
 		String s074Question = Utility.getFromTextProperties("s074Question") + " " + employerName + " ("
-				+ applicantFullName + "'s job).";
+				+ applicantFullName + "' job).";
 		String s074QuestionSpouse = Utility.getFromTextProperties("s074Question") + " " + spouseEmployerName + " ("
-				+ spouseFullName + "'s job).";
+				+ spouseFullName + "' job).";
 		String s083Question = Utility.getFromTextProperties("s083Question") + " " + minus60DaysDate + " and "
 				+ ESTTimeZone.getCurrentDate("MMM d, yyyy") + "?";
 		String s083DrawerHeading = Utility.getFromTextProperties("s083DrawerHeading");
@@ -438,12 +439,7 @@ public class TestCase2_F extends BaseTest {
 		// NON-Magi Questions
 		ExtentTestManager.getTest().info("---------------------SCREEN S045----------------------------");
 		commonMethodPage.clickSaveAndContinueButton();
-
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
+		
 
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
@@ -451,6 +447,13 @@ public class TestCase2_F extends BaseTest {
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
+		commonMethodPage.clickSaveAndContinueButton();
+
+
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S050A
@@ -595,7 +598,7 @@ public class TestCase2_F extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

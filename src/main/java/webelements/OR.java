@@ -3,8 +3,10 @@ package webelements;
 import org.openqa.selenium.By;
 
 public interface OR {
+	By sessionOutText = By.xpath("(//div[@class=\"col-sm-12 col-md-12 col-lg-12\"])//h3[contains(text(),'Session already in progress')]");
+	By sessionOutCancelBtn = By.xpath("((//form[@class='col-sm-6 col-md-6 col-lg-6'])//input[@class='edeLoginBtn'])[1]");
 	By continueBtn = By.xpath("//button[contains(text(),'Continue')]");
-	By sh_signIn = By.id("ctl00_ctl00_ucLogedInUser_lnkSignInStatus");
+	By ContinueBtn2 = By.xpath("//button[@class='btn theme-btn float-right']");
 	By selectState = By.xpath("//select[@id='state']");
 	By clickApplyOrRenew = By.xpath("//button[contains(text(),'Apply or Renew')]");
 	By clickNext = By.xpath("//button[contains(text(),'Next')]");
@@ -18,10 +20,13 @@ public interface OR {
 	By enterFirstName = By.xpath("//span[contains(text(),'First Name')]/../..//following-sibling::div//input");
 	By enterMiddleName = By.xpath("//span[contains(text(),'Middle Name ')]/../..//following-sibling::div//input");
 	By enterLastName = By.xpath("//span[contains(text(),'Last Name')]/../..//following-sibling::div//input");
-	By enterDOB = By.xpath("//span[contains(text(),'Date of birth')]/../..//following-sibling::div//div//input");
+	By enterDOB = By.xpath("//span[contains(text(),'Date of birth')]/../..//following-sibling::div//input");
 	By enterStreetAddress = By.xpath("//span[text()='Street address']/../..//following-sibling::div//input");
 	By enterCity = By.xpath("//span[contains(text(),'City')]/../..//following-sibling::div//input");
-	By enterZipCode = By.xpath("//span[contains(text(),'ZIP code')]/../..//following-sibling::div//input");
+	//By enterZipCode = By.xpath("//span[contains(text(),'ZIP code')]/../..//following-sibling::div//input");
+	By enterZipCode = By.xpath("//input[@aria-label='ZIP Code']");
+	
+	By enterMovedZipCode1 = By.xpath("(//span[contains(text(),'ZIP code')]/../..//following-sibling::div//input)[1]");
 	By enterZipCode2OnSamePage = By
 			.xpath("(//span[contains(text(),'ZIP code')]/../..//following-sibling::div//input)[2]");
 	By selectStateInContactInfo = By.xpath("//span[contains(text(),'State')]/../..//following-sibling::div//select");
@@ -31,9 +36,11 @@ public interface OR {
 	By continueAddressBtn = By.xpath("//button[contains( text(),'Continue')]");
 	By addressRadiobtn = By
 			.xpath("//div[contains(text(),'Select the correct address:')]//..//form//div//div//div//label");
-	By enterPhoneNumber = By.xpath("//span[contains(text(),'Phone number')]/../..//following-sibling::div//input");
-	By enterPhoneNumberJobB = By
-			.xpath("(//span[contains(text(),'Phone number')]/../..//following-sibling::div//input)[2]");
+	//By enterPhoneNumber = By.xpath("//span[contains(text(),'Phone number')]/../..//following-sibling::div//input");
+	By enterPhoneNumber = By.xpath("(//input[@aria-label='Phone Number'])[1]");
+	//By enterPhoneNumberJobB = By.xpath("(//span[contains(text(),'Phone number')]/../..//following-sibling::div//input)[2]");
+	By enterPhoneNumberJobB = By.xpath("(//input[@aria-label='Phone Number'])[2]");
+	
 	By selectWrittenLanguage = By.xpath("//select[contains(@aria-label,'Preferred written language')]");
 	By selectSpokenLanguage = By.xpath("//select[contains(@aria-label,'Preferred spoken language')]");
 
@@ -87,9 +94,9 @@ public interface OR {
 	By enterAnualPerditedAmount = By.xpath("//input[@class='form-control']");
 	By selectFosterCareState = By.xpath("//span[contains(text(),'state')]/../..//following-sibling::div//select");
 	By enterAgeFosterCareLeft = By.xpath("//span[contains(text(),'How old')]/../..//following-sibling::div//input");
-	By enterDateToFilledField = By.xpath("//input[@class='form-control flatpickr-input input w-95 datepicker masked']");
+	By enterDateToFilledField = By.xpath("(//span[contains(text(),'ZIP code')]/../..//following-sibling::div//input)[2]");
 	By enterDateToFilledFieldOnSamePage = By
-			.xpath("(//input[@class='form-control flatpickr-input input w-95 datepicker masked'])[2]");
+			.xpath("(//div[@class='sv_q sv_qstn']//input[@class='form-control'])[4]");
 	By selectGender_S038 = By.xpath("(//select[@class='form-control'])[2]");
 	By selectTribe = By.xpath("(//select[@class='form-control'])[2]");
 	By selectState_S075 = By.xpath("//span[contains(text(),'state')]/../..//following-sibling::div//select");
@@ -99,13 +106,14 @@ public interface OR {
 	By enterPolicyNumber = By.xpath("//span[contains(text(),'Policy number ')]/../..//following-sibling::div//input");
 	By describeExpense = By
 			.xpath("//span[contains(text(),'Describe the expense ')]/../..//following-sibling::div//input");
-	By startDateJobA = By.xpath("//span[contains(text(),'Start date')]/../..//following-sibling::div//div//input");
-	By endDateJobA = By.xpath("//span[contains(text(),'End date')]/../..//following-sibling::div//div//input");
+	By startDateJobA = By.xpath("//span[contains(text(),'Start date')]/../..//following-sibling::div//input");
+	By endDateJobA = By.xpath("//span[contains(text(),'End date')]/../..//following-sibling::div//input");
 	By enterIchraAmountOffered = By.xpath("//input[contains(@inputmode,'numeric')]");
 	By selectIchraAmountPeriod = By.xpath("//select[contains(@aria-label,'How often would')]");
 	By enterHours = By.xpath("//input[contains(@aria-label,'How many hours')]");
 	By s042StreetAddress = By.xpath("//span[text()='Street address ']/../..//following-sibling::div//input");
-	By s073PremiumPeriod = By.xpath("//select[@class='form-control']");
+	By s073SelfPremiumPeriod = By.xpath("(//select[@class='form-control'])[1]");
+	By s073FamilyPremiumPeriod = By.xpath("(//select[@class='form-control'])[2]");
 	By startDateJobB = By.xpath("(//span[contains(text(),'Start date')]/../..//following-sibling::div//div//input)[2]");
 	By endDateJobB = By.xpath("(//span[contains(text(),'End date')]/../..//following-sibling::div//div//input)[2]");
 	By enterIchraAmountOfferedJobB = By.xpath("(//input[contains(@inputmode,'numeric')])[2]");
@@ -127,8 +135,6 @@ public interface OR {
 	By getYear=By.xpath("//select[@id='year']//option");
 	By employerNameCobra_S069=By.xpath("//span[contains(text(),'Employer name')]/../..//following-sibling::div//input");
 	By selectRelationS28_Item92=By.xpath("(//span//..//..//..//select[@class='form-control'])[1]");
-	
-	
 	
 
 	// text verification
@@ -190,6 +196,7 @@ public interface OR {
 	By s084Question = By.xpath("//span[contains(text(),'Will any of these people lose qualifying health coverage')]");
 	By s084OpenDrawerLink = By.xpath("//a[contains(@onclick,'OpenDrawer')]");
 	By s084DrawerHeading = By.xpath("//h1[@class='head draggabledivheader']");
+	By s089Question = By.xpath("");
 	By reviewDrawerLink = By.xpath("//a[contains(@onclick,'OpenDrawer')]");
 	By reviewDrawerHeading = By.xpath("//h1[@class='head draggabledivheader']");
 	By reviewDrawerContent = By.xpath("//div[@class='mCSB_container mCS_y_hidden mCS_no_scrollbar_y']");
@@ -234,6 +241,12 @@ public interface OR {
 	By enterEmployerName = By.xpath("//span[contains(text(),'Employer name')]/../..//following-sibling::div//input");
 	By s057Question2 = By.xpath("//span[contains(text(),'currently gets this month.')]");
 	By enterIncomeAmount = By.xpath("//input[contains(@inputmode,'numeric')]");
+	
+	By enterSelfPremiumAmount = By.xpath("(//input[@class='form-control'])[1]");
+	By enterFamilyPremiumAmount = By.xpath("(//input[@class='form-control'])[2]");
+	By enterSelfPremiumAmount2 = By.xpath("(//input[@class='form-control'])[3]");
+	By enterFamilyPremiumAmount2 = By.xpath("(//input[@class='form-control'])[4]");
+	
 	By s057Question3 = By.xpath("//span[contains(text(),'get this income')]");
 	By s057Question4 = By.xpath("//div[contains(text(),'Enter the amount')]");
 	By s058Question = By.xpath("//span[contains(text(),'educator expense')]");
@@ -247,7 +260,9 @@ public interface OR {
 	By s070Question = By.xpath("//span[contains(text(),'Tell us about coverage offers that apply to them starting')]");
 	By s074Question = By.xpath("//span[contains(text(),'Tell us more about')]");
 	By s090Question = By.xpath("//span[contains(text(),'recently get married?')]");
-	By enterDate = By.xpath("//input[@class='form-control flatpickr-input form-control input w-95 datepicker masked']");
+	By enterDate = By.xpath("//div[@class='sv_q sv_qstn']//input[@class='form-control']");
+	By enterRecentMoveDate = By.xpath("(//div[@class='sv_q sv_qstn']//input[@class='form-control'])[2]");
+	By enterRecenetMoveDate2 = By.xpath("(//div[@class='sv_q sv_qstn']//input[@class='form-control'])[4]");
 	By enterDateOnSamePage = By
 			.xpath("//input[@class='form-control flatpickr-input form-control input w-95 datepicker masked']");
 	By enterDateP1 = By
@@ -301,8 +316,14 @@ public interface OR {
 	By s003Question2 = By.xpath("//div[@class='sv_q_title']");
 	By invalidSsnError = By.xpath("//span[contains(text(),'valid social security number')]");
 	By i94Number = By.xpath("//input[contains(@aria-label,'I-94')]");
-	By hoursForP1 = By.xpath("(//input[contains(@aria-label,'I-94')])[1]");
-	By hoursForP2 = By.xpath("(//input[contains(@aria-label,'I-94')])[2]");
+	
+	//old xpath
+	//By hoursForP1 = By.xpath("(//input[contains(@aria-label,'I-94')])[1]");
+	By hoursForP1 = By.xpath("(//div[contains(@class,'sv_q sv_qstn')])//input[@id='sq_744i']");
+	
+	//old xpath 
+	//By hoursForP2 = By.xpath("(//input[contains(@aria-label,'I-94')])[2]");
+	By hoursForP2 = By.xpath("(//div[contains(@class,'sv_q sv_qstn')])//input[@id='sq_745i']");
 	By s80Question = By.xpath("//div[contains(text(),'parents work?')]");
 	
 	

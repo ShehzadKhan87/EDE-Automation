@@ -20,8 +20,9 @@ public class TestCase2_D extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -440,12 +441,6 @@ public class TestCase2_D extends BaseTest {
 		commonMethodPage.helpWithDailyActivities_S045(stepChildFirstName);
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
-
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
 		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
@@ -453,6 +448,14 @@ public class TestCase2_D extends BaseTest {
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
 		commonMethodPage.clickSaveAndContinueButton();
+
+		
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
+		commonMethodPage.clickSaveAndContinueButton();
+
 
 		// S050A
 		ExtentTestManager.getTest().info("---------------------SCREEN S050A----------------------------");
@@ -462,10 +465,12 @@ public class TestCase2_D extends BaseTest {
 
 		// who is Full time student
 		ExtentTestManager.getTest().info("---------------------SCREEN S051----------------------------");
+		Wait.wait5Second();
 		commonMethodPage.verifyS051Question(s051Question);
 		commonMethodPage.whoIsFullTimeStudent_S051(daughterFullName);
-		commonMethodPage.verifyS051Question2(s051Question2);
-		commonMethodPage.isThereAnyGardianInAppState_S051(yes);
+		Wait.wait15Second();
+		//commonMethodPage.verifyS051Question2(s051Question2);
+		//commonMethodPage.isThereAnyGardianInAppState_S051(yes);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// Income Questions
@@ -629,7 +634,7 @@ public class TestCase2_D extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

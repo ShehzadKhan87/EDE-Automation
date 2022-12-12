@@ -21,8 +21,9 @@ public class TestCase3_G extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -305,6 +306,7 @@ public class TestCase3_G extends BaseTest {
 		// Open Browser and execute URL
 		loginEdeQa(userName, password, url);
 		CommonMethodPage commonMethodPage = new CommonMethodPage();
+		commonMethodPage.clickToCancelSessionOutBtn();
 		commonMethodPage.clickContinueBtn();
 		commonMethodPage.selectYear(ESTTimeZone.getCurrentYear());
 		commonMethodPage.selectState(state);
@@ -325,12 +327,12 @@ public class TestCase3_G extends BaseTest {
 		commonMethodPage.enterMiddleName("");
 		commonMethodPage.enterLastName(lastName);
 		commonMethodPage.selectGender(female);
-
+		Wait.wait3Second();
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// Address
 		ExtentTestManager.getTest().info("---------------------SCREEN S002----------------------------");
-
+		Wait.wait3Second();
 		commonMethodPage.enterStreetAddress(streetAddress);
 		commonMethodPage.verifyS002(s002Question);
 		commonMethodPage.selectStateInContactInfo(state);
@@ -345,6 +347,7 @@ public class TestCase3_G extends BaseTest {
 
 		// Mail Address
 		ExtentTestManager.getTest().info("---------------------SCREEN S003----------------------------");
+		Wait.wait3Second();
 		commonMethodPage.selectMailingAddress(yes);
 		commonMethodPage.verifyScreen_s003(linkMailingDrawer, mailingDrawerHeading, s003Question, drawerContent);
 		commonMethodPage.clickSaveAndContinueButton();
@@ -556,8 +559,7 @@ public class TestCase3_G extends BaseTest {
 		commonMethodPage.selectNaturalizedOrDrived(yes, s017DocumentQuestion, "", "");
 		commonMethodPage.selectDocumentType(noneOfThese, "", "", "");
 		commonMethodPage.clickSaveAndContinueButton();
-		commonMethodPage.clickContinueBtn();
-		Wait.wait3Second();
+		//commonMethodPage.clickContinueBtn();
 
 		// Marital status
 		ExtentTestManager.getTest().info("---------------------SCREEN S026----------------------------");
@@ -604,12 +606,7 @@ public class TestCase3_G extends BaseTest {
 		// NON-Magi Questions
 		ExtentTestManager.getTest().info("---------------------SCREEN S045----------------------------");
 		commonMethodPage.clickSaveAndContinueButton();
-
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
+		
 
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
@@ -617,6 +614,13 @@ public class TestCase3_G extends BaseTest {
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
+		commonMethodPage.clickSaveAndContinueButton();
+
+
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S050A
@@ -941,14 +945,14 @@ public class TestCase3_G extends BaseTest {
 		// S083
 		ExtentTestManager.getTest().info("---------------------SCREEN S083----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQualifyingHealthCovRecent_S083(noneOfThese);
 		commonMethodPage.verifyS083(s083Question, s083DrawerHeading, s83DrawerContent);
+		commonMethodPage.loseQualifyingHealthCovRecent_S083(noneOfThese);
 		commonMethodPage.clickSaveAndContinueButton();
-
+			
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 
@@ -960,32 +964,65 @@ public class TestCase3_G extends BaseTest {
 		commonMethodPage.verifyS085(s085Question);
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// S085
+		// S088
 		ExtentTestManager.getTest().info("---------------------SCREEN S088----------------------------");
+//		Wait.wait5Second();
+//		commonMethodPage.verifyS088(s088Question);
+//		commonMethodPage.whoRecentlyMoved_S088(firstChildFullName);
+//		commonMethodPage.whoRecentlyMoved_S088(secondChildFullName);
+//		commonMethodPage.enterZipCode(movedZipCode);
+//		commonMethodPage.selectStateInContactInfo(movedState);
+//		commonMethodPage.clickCountyDropDown();
+//		Wait.wait2Second();
+//		commonMethodPage.selectCounty(movedCounty);
+//		commonMethodPage.s088EnterDate("02/02/2020");
+//		commonMethodPage.verifyErrorOnDate(dateError);
+//		commonMethodPage.s088enterDateToFilledField(movedDate);
+//		commonMethodPage.priorCoverageQuestion_S088(no);
+//		commonMethodPage.enterZipCode2OnSamePage(movedZipCode);
+//		commonMethodPage.selectStateInContactInfoOnSamePage(movedState);
+//		commonMethodPage.clickCountyDropDownOnSamePage();
+//		commonMethodPage.selectCountyOnSamePage(movedCounty);
+//		commonMethodPage.s088EnterDateOnSamePage("02/02/2020");
+//		commonMethodPage.verifyErrorOnDate(dateError);
+//		commonMethodPage.s088enterDateToFilledFieldOnSamePage(movedDate);
+//		commonMethodPage.priorCoverageQuestion_S088OnSamePage(no);
+//		commonMethodPage.clickSaveAndContinueButton();
+
+		// There are changes in the xpaths, so  updating / commenting the previous work
 		Wait.wait5Second();
 		commonMethodPage.verifyS088(s088Question);
 		commonMethodPage.whoRecentlyMoved_S088(firstChildFullName);
 		commonMethodPage.whoRecentlyMoved_S088(secondChildFullName);
-		commonMethodPage.enterZipCode(movedZipCode);
+		commonMethodPage.enterMovedZipCode1(movedZipCode);
 		commonMethodPage.selectStateInContactInfo(movedState);
-		commonMethodPage.clickCountyDropDown();
+		//commonMethodPage.clickCountyDropDown();
+		Wait.wait3Second();
 		commonMethodPage.selectCounty(movedCounty);
 		commonMethodPage.s088EnterDate("02/02/2020");
+		Wait.wait3Second();
 		commonMethodPage.verifyErrorOnDate(dateError);
+		Wait.wait3Second();
 		commonMethodPage.s088enterDateToFilledField(movedDate);
 		commonMethodPage.priorCoverageQuestion_S088(no);
 		commonMethodPage.enterZipCode2OnSamePage(movedZipCode);
 		commonMethodPage.selectStateInContactInfoOnSamePage(movedState);
 		commonMethodPage.clickCountyDropDownOnSamePage();
+		Wait.wait3Second();
 		commonMethodPage.selectCountyOnSamePage(movedCounty);
+		Wait.wait3Second();
 		commonMethodPage.s088EnterDateOnSamePage("02/02/2020");
+		Wait.wait3Second();
 		commonMethodPage.verifyErrorOnDate(dateError);
+		Wait.wait3Second();
 		commonMethodPage.s088enterDateToFilledFieldOnSamePage(movedDate);
 		commonMethodPage.priorCoverageQuestion_S088OnSamePage(no);
+		Wait.wait5Second();
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S090
 		ExtentTestManager.getTest().info("---------------------SCREEN S090----------------------------");
+		Wait.wait3Second();
 		commonMethodPage.verifyS090(s090Question);
 		commonMethodPage.whoGetMarried_S090(secondChildFullName + " & " + daughterInLawFullName);
 		commonMethodPage.verifyS090Question2(s090Question2);

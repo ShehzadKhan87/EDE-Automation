@@ -44,14 +44,18 @@ public class BaseTest  {
     
     //Load url and login to edeqa
     public void loginEdeQa(String userName,String Password,String url) throws IOException, InterruptedException {
+    	Wait.wait3Second();
     	String edeEmail=Utility.getValue("edeEmail");
     	String edePassword=Utility.getValue("edePassword");
+    	String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
     	basePage.loadPage(url);
     	Utility.attachWebScreenShotToReport(ExtentTestManager.name+"_"+ESTTimeZone.getCurrentDate("dd_MM_yyyy_HH_mm_ss_ms"));
-    	loginPage.enterUserName(userName);
-    	loginPage.enterPassword(Password);
-    	loginPage.clickSignInButton();
-    	Wait.wait2Second();
+    	Wait.wait5Second();
+    	loginPage.clickSignInLnk();
+    	//loginPage.enterUserName(userName);
+    	//loginPage.enterPassword(Password);
+    	//loginPage.clickSignInButton();
+    	Wait.wait10Second();
     	loginPage.enterEmailEDE(edeEmail);
     	loginPage.enterPasswordEDE(edePassword);
     	loginPage.clickSignInButtonEDE();

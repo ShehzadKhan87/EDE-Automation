@@ -1397,6 +1397,7 @@ public class TestCase_F004_Agent extends BaseTest {
 		commonMethodPage.enterPhoneNumber(EmployerPhone);
 		commonMethodPage.clickSaveAndContinueButton();
 		Wait.wait2Second();
+		
 		// S083
 		ExtentTestManager.getTest().info("---------------------SCREEN S083----------------------------");
 		commonMethodPage.loseQualifyingHealthCovRecent_S083(noneOfThese);
@@ -1405,8 +1406,8 @@ public class TestCase_F004_Agent extends BaseTest {
 
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
-		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		//Wait.wait5Second();
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

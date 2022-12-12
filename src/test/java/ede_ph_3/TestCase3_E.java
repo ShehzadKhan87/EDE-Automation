@@ -20,8 +20,9 @@ public class TestCase3_E extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -511,9 +512,9 @@ public class TestCase3_E extends BaseTest {
 		commonMethodPage.clickSaveAndContinueButton();
 
 		ExtentTestManager.getTest().info("---------------------SCREEN S034----------------------------");
-		Wait.wait3Second();
+		Wait.wait5Second();
 		commonMethodPage.doAnyOtherFamilyMemberLiveOnThisAddress_S034(yes);
-		commonMethodPage.canYouProvideMoreInfo_S034(yes);
+		//commonMethodPage.canYouProvideMoreInfo_S034(yes);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		ExtentTestManager.getTest().info("---------------------SCREEN S035----------------------------");
@@ -535,13 +536,7 @@ public class TestCase3_E extends BaseTest {
 		commonMethodPage.physicalDisability_S045(grandChildFullName);
 		commonMethodPage.helpWithDailyActivities_S045(grandChildFullName);
 		commonMethodPage.clickSaveAndContinueButton();
-
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
-
+		
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
 		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
@@ -550,6 +545,14 @@ public class TestCase3_E extends BaseTest {
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
 		commonMethodPage.clickSaveAndContinueButton();
 
+
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
+		commonMethodPage.clickSaveAndContinueButton();
+
+	
 		// S050A
 		ExtentTestManager.getTest().info("---------------------SCREEN S050A----------------------------");
 		commonMethodPage.verifyS050A(s050AQuestion);
@@ -720,7 +723,7 @@ public class TestCase3_E extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

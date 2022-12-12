@@ -20,8 +20,9 @@ public class TestCase3_D extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -141,11 +142,11 @@ public class TestCase3_D extends BaseTest {
 		String s010AQuestion = Utility.getFromTextProperties("s010AQuestion");
 		String s010ADrawerHeading = Utility.getFromTextProperties("s010ADrawerHeading");
 		String s010ADrawerContent = Utility.getFromTextProperties("s010ADrawerContent");
-		String s026Question = "What’s" + " " + applicantFullName + "'s" + " "
+		String s026Question = "Whatï¿½s" + " " + applicantFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
-		String s026QuestionDomestic = "What’s" + " " + domesticFullName + "'s" + " "
+		String s026QuestionDomestic = "Whatï¿½s" + " " + domesticFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
-		String s026QuestionChild = "What’s" + " " + childFullName + "'s" + " "
+		String s026QuestionChild = "Whatï¿½s" + " " + childFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
 		String s026DrawerContent = Utility.getFromTextProperties("s026DrawerContent");
 		String s026DrawerHeading = Utility.getFromTextProperties("s026DrawerHeading");
@@ -505,18 +506,19 @@ public class TestCase3_D extends BaseTest {
 		commonMethodPage.verifyS045Question(s045Question1, s045Question2);
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
-
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
 		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
+		commonMethodPage.clickSaveAndContinueButton();
+
+
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S050A
@@ -648,6 +650,13 @@ public class TestCase3_D extends BaseTest {
 		commonMethodPage.whatTypeCoverageHave_S069(cobra);
 		commonMethodPage.enterEmployerNameCobra_S069(employerName);
 		commonMethodPage.clickSaveAndContinueButton();
+		
+		
+		
+		// Issue started from here
+		
+		
+		
 
 		// Ichra offer from job
 		ExtentTestManager.getTest().info("---------------------SCREEN S069A----------------------------");
@@ -692,7 +701,7 @@ public class TestCase3_D extends BaseTest {
 		commonMethodPage.verifyScreen_s073_Question(s073Question);
 		commonMethodPage.doesEmployerCoverageMeetMinimumValueStandard_S073(yes);
 		commonMethodPage.enterAmount_S073(premiumAmount);
-		commonMethodPage.selectPremiumPeriod_s073(monthly);
+		commonMethodPage.selectSelfPremiumPeriod_s073(monthly);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// About Employer
@@ -700,23 +709,29 @@ public class TestCase3_D extends BaseTest {
 		commonMethodPage.verifyS074(s074Question);
 		commonMethodPage.enterPhoneNumber(EmployerPhone);
 		commonMethodPage.clickSaveAndContinueButton();
-
+		
 		// About Employer of spouse
 		ExtentTestManager.getTest().info("---------------------SCREEN S074----------------------------");
 		commonMethodPage.verifyS074(s074QuestionDomestic);
 		commonMethodPage.enterPhoneNumber(EmployerPhone);
 		commonMethodPage.clickSaveAndContinueButton();
 
+
+		// help paying for medical bills
+		ExtentTestManager.getTest().info("---------------------SCREEN S077----------------------------");
+		commonMethodPage.clickSaveAndContinueButton();
+		
 		// S083
 		ExtentTestManager.getTest().info("---------------------SCREEN S083----------------------------");
-		commonMethodPage.loseQualifyingHealthCovRecent_S083(noneOfThese);
 		commonMethodPage.verifyS083(s083Question, s083DrawerHeading, s83DrawerContent);
+		commonMethodPage.loseQualifyingHealthCovRecent_S083(noneOfThese);
+		Wait.wait5Second();
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

@@ -1,8 +1,5 @@
 package ede_ph_1;
 
-import java.util.ArrayList;
-
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import basetest.BaseTest;
@@ -22,8 +19,9 @@ public class TestCase1_O extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -332,6 +330,7 @@ public class TestCase1_O extends BaseTest {
 		String s067Question = Utility.getFromTextProperties("s067Question");
 
 		// Open Browser and execute URL
+		
 		loginEdeQa(userName, password, url);
 		CommonMethodPage commonMethodPage = new CommonMethodPage();
 		LoginPage loginPage = new LoginPage();
@@ -352,14 +351,15 @@ public class TestCase1_O extends BaseTest {
 		commonMethodPage.needCoverage(yes, "1");
 		commonMethodPage.verifyS001(s001Question);
 		commonMethodPage.enterFirstName(firstName);
-		commonMethodPage.enterDob(age);
 		commonMethodPage.enterMiddleName("");
 		commonMethodPage.enterLastName(lastName);
 		commonMethodPage.selectGender(male);
-
+		String dob = commonMethodPage.enterDob(age);
 		commonMethodPage.clickSaveAndContinueButton();
 
+		
 		// Address
+		
 		ExtentTestManager.getTest().info("---------------------SCREEN S002----------------------------");
 
 		commonMethodPage.enterStreetAddress(streetAddress);
@@ -730,6 +730,22 @@ public class TestCase1_O extends BaseTest {
 		commonMethodPage.physicalDisability_S045(firstChildFirstName);
 		commonMethodPage.helpWithDailyActivities_S045(thirdChildFirstName);
 		commonMethodPage.clickSaveAndContinueButton();
+		
+		
+		// Medicaid and CHIP ended or end soon
+		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
+		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P4(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P6(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P7(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P8(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P5(yes);
+		commonMethodPage.hasHouseHoldIncomChanged_S049_P5(no);
+		commonMethodPage.s049EnterDate(lastDateOfMedicaidCHIP);
+		commonMethodPage.clickSaveAndContinueButton();
 
 		// Medicaid and CHIP
 		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
@@ -746,20 +762,7 @@ public class TestCase1_O extends BaseTest {
 		commonMethodPage.applyAfterQualifyingLifeEvent_S048(yes);
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// Medicaid and CHIP ended or end soon
-		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
-		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P4(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P6(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P7(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P8(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P5(yes);
-		commonMethodPage.hasHouseHoldIncomChanged_S049_P5(no);
-		commonMethodPage.s049EnterDate(lastDateOfMedicaidCHIP);
-		commonMethodPage.clickSaveAndContinueButton();
+	
 
 		// S050A
 		ExtentTestManager.getTest().info("---------------------SCREEN S050A----------------------------");
@@ -1078,7 +1081,7 @@ public class TestCase1_O extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

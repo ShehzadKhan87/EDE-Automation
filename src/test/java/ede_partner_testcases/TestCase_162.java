@@ -20,8 +20,9 @@ public class TestCase_162 extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -119,9 +120,9 @@ public class TestCase_162 extends BaseTest {
 		String s010AQuestion = Utility.getFromTextProperties("s010AQuestion");
 		String s010ADrawerHeading = Utility.getFromTextProperties("s010ADrawerHeading");
 		String s010ADrawerContent = Utility.getFromTextProperties("s010ADrawerContent");
-		String s026Question = "What’s" + " " + applicantFullName + "'s" + " "
+		String s026Question = "Whatï¿½s" + " " + applicantFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
-		String s026QuestionChild = "What’s" + " " + childFullName + "'s" + " "
+		String s026QuestionChild = "Whatï¿½s" + " " + childFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
 		String s026DrawerContent = Utility.getFromTextProperties("s026DrawerContent");
 		String s026DrawerHeading = Utility.getFromTextProperties("s026DrawerHeading");
@@ -340,7 +341,7 @@ public class TestCase_162 extends BaseTest {
 
 		// Marital status
 		ExtentTestManager.getTest().info("---------------------SCREEN S026----------------------------");
-		commonMethodPage.verifyS026(s026Question, s026DrawerHeading, s026DrawerContent);
+		//commonMethodPage.verifyS026(s026Question, s026DrawerHeading, s026DrawerContent);
 		commonMethodPage.selectMaritalStatus(married);
 		commonMethodPage.clickSaveAndContinueButton();
 
@@ -574,8 +575,8 @@ public class TestCase_162 extends BaseTest {
 		commonMethodPage.selectCoverageTypeApplicant_S069D(individualCoverageHRA);
 		commonMethodPage.selectCoverageTypeApplicantSpouse2_S069D(QSEHRA);
 
-		commonMethodPage.indiviualStartDate_S069D(indivitualStartDate);
-		commonMethodPage.indiviualNoticeDate_S069D(indivitualNoticeDate);
+		commonMethodPage.individualStartDate_S069D(indivitualStartDate);
+		commonMethodPage.individualNoticeDate_S069D(indivitualNoticeDate);
 
 		commonMethodPage.isCurrentlyEnrolledThroughEmployer_S069D(no);
 
@@ -614,7 +615,7 @@ public class TestCase_162 extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

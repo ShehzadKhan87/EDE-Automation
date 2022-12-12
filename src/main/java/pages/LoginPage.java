@@ -18,6 +18,10 @@ public class LoginPage extends BasePage{
 		WebElement element=waitForElementToBeClickable(LoginElements.btnSignIn,60);
 		clickElement(element, "sign in button");
 	}
+	public void clickSignInLnk() {
+		WebElement element=waitForElementToBeClickable(LoginElements.lnkSignIn,60);
+		clickElement(element, "Sign into Marketplace");
+	}
 	public void enterEmailEDE(String userName) {
 		WebElement element=waitForElementToBePresent(LoginElements.enterEmailEDE,60);
 		sendKeysToElement(element, userName, "Email EDE");

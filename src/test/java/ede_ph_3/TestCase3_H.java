@@ -21,8 +21,9 @@ public class TestCase3_H extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -81,6 +82,7 @@ public class TestCase3_H extends BaseTest {
 		String grandParentRelation = Utility.getDate_TestCase3_H("grandParentRelation");
 		String motherFatherInLaw = Utility.getDate_TestCase3_H("motherFatherInLaw");
 		String otherRelative = Utility.getDate_TestCase3_H("otherRelative");
+		String otherRelative2 = Utility.getDate_TestCase3_H("otherRelative2");
 		String grandChildRelation = Utility.getDate_TestCase3_H("grandChildRelation");
 		String fatherFirstName = Utility.getDate_TestCase3_H("fatherFirstName");
 		String fatherLastName = Utility.getDate_TestCase3_H("fatherLastName");
@@ -279,6 +281,7 @@ public class TestCase3_H extends BaseTest {
 		loginEdeQa(userName, password, url);
 		CommonMethodPage commonMethodPage = new CommonMethodPage();
 		LoginPage loginPage = new LoginPage();
+		commonMethodPage.clickToCancelSessionOutBtn();
 		commonMethodPage.clickContinueBtn();
 		commonMethodPage.selectYear(ESTTimeZone.getCurrentYear());
 		commonMethodPage.selectState(state);
@@ -511,6 +514,7 @@ public class TestCase3_H extends BaseTest {
 		commonMethodPage.enterFirstName(fatherFirstName);
 		commonMethodPage.enterLastName(fatherLastName);
 		commonMethodPage.selectGender(male);
+		Wait.wait3Second();
 		commonMethodPage.selectRelation1_L(otherRelative, otherRelative, otherRelative, grandParentRelation, "4");
 		commonMethodPage.clickSaveAndContinueButton();
 		Wait.wait5Second();
@@ -541,8 +545,9 @@ public class TestCase3_H extends BaseTest {
 		commonMethodPage.enterFirstName(grandDaughterFirstName);
 		commonMethodPage.enterLastName(grandDaughterLastName);
 		commonMethodPage.selectGender(female);
-		commonMethodPage.selectRelation3H_S038(grandChildRelation, otherRelative, otherRelative, otherRelative,
-				otherRelative, grandChildRelation, "6");
+		Wait.wait3Second();
+		commonMethodPage.selectRelation3H_S038(grandChildRelation, otherRelative2, otherRelative2, otherRelative2,
+				otherRelative2, grandChildRelation, "6");
 		commonMethodPage.clickSaveAndContinueButton();
 		Wait.wait5Second();
 		ExtentTestManager.getTest().info("---------------------SCREEN S043----------------------------");
@@ -614,25 +619,29 @@ public class TestCase3_H extends BaseTest {
 		commonMethodPage.helpWithDailyActivities_S045(firstChildFullName);
 		commonMethodPage.clickSaveAndContinueButton();
 
+		// Medicaid and CHIP ended or end soon
+		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
+		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P3(no);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P4(no);
+		commonMethodPage.clickSaveAndContinueButton();
+
 		// Medicaid and CHIP
 		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
 		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
 		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(applicantFullName);
 		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(firstChildFullName);
 		commonMethodPage.s046EnterDate(FoundNotEligibleDate);
-		commonMethodPage.s046EnterDate(FoundNotEligibleDate);
+		Wait.wait2Second();
+		commonMethodPage.s046EnterDate2(FoundNotEligibleDate);
+		Wait.wait2Second();
 		commonMethodPage.clickSaveAndContinueButton();
 
 		ExtentTestManager.getTest().info("---------------------SCREEN S047----------------------------");
 		commonMethodPage.applyForHealthCoverage_S047(applicantFullName);
 		commonMethodPage.applyForHealthCoverage_S047(firstChildFullName);
-		commonMethodPage.clickSaveAndContinueButton();
-
-		// Medicaid and CHIP ended or end soon
-		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
-		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S050A
@@ -873,7 +882,7 @@ public class TestCase3_H extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

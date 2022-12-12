@@ -127,7 +127,7 @@ public class TestCase_180 extends BaseTest {
 		String s019Question = "Does " + applicantFullName + " " + Utility.getFromTextProperties("s019Question");
 		String s019Question2 = "Select the document type that corresponds with " + applicantFullName + "'s "
 				+ Utility.getFromTextProperties("s019Question2");
-		String s026Question = "What’s" + " " + applicantFullName + "'s" + " "
+		String s026Question = "Whatï¿½s" + " " + applicantFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
 		String s026DrawerContent = Utility.getFromTextProperties("s026DrawerContent");
 		String s026DrawerHeading = Utility.getFromTextProperties("s026DrawerHeading");
@@ -319,17 +319,18 @@ public class TestCase_180 extends BaseTest {
 		ExtentTestManager.getTest().info("---------------------SCREEN S045----------------------------");
 		commonMethodPage.clickSaveAndContinueButton();
 
+		// Medicaid and CHIP ended or end soon
+		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
+		commonMethodPage.verifyS049ForOneQuestion(s046QuestionMedicad, s046QuestionCHIP);
+		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
+		commonMethodPage.clickSaveAndContinueButton();
+
 		// Medicaid and CHIP
 		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
 		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
 		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// Medicaid and CHIP ended or end soon
-		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
-		commonMethodPage.verifyS049ForOneQuestion(s046QuestionMedicad, s046QuestionCHIP);
-		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
-		commonMethodPage.clickSaveAndContinueButton();
 
 		// Medicad or CHIP effect due to immigration status
 		ExtentTestManager.getTest().info("---------------------SCREEN S050----------------------------");
@@ -437,7 +438,7 @@ public class TestCase_180 extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait2Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

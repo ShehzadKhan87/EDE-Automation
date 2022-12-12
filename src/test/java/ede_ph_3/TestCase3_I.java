@@ -20,8 +20,9 @@ public class TestCase3_I extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -214,6 +215,7 @@ public class TestCase3_I extends BaseTest {
 		loginEdeQa(userName, password, url);
 		CommonMethodPage commonMethodPage = new CommonMethodPage();
 		LoginPage loginPage = new LoginPage();
+		commonMethodPage.clickToCancelSessionOutBtn();
 		commonMethodPage.clickContinueBtn();
 		commonMethodPage.selectYear(ESTTimeZone.getCurrentYear());
 		commonMethodPage.selectState(state);
@@ -391,17 +393,17 @@ public class TestCase3_I extends BaseTest {
 		ExtentTestManager.getTest().info("---------------------SCREEN S045----------------------------");
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
-
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
 		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
+		commonMethodPage.clickSaveAndContinueButton();
+
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// S050A
@@ -545,7 +547,9 @@ public class TestCase3_I extends BaseTest {
 		}
 
 		ExtentTestManager.getTest().info("---------------------SCREEN S069E----------------------------");
+		Wait.wait5Second();
 		commonMethodPage.verifyS069E(s069EQuestion);
+		Wait.wait2Second();
 		commonMethodPage.enterStartDateJobA(ichraStartDateJobA);
 		commonMethodPage.enterEndDateJobA(ichraEndDateJobA);
 		commonMethodPage.enterIchraAmountOffered(ichraAmount);
@@ -586,13 +590,13 @@ public class TestCase3_I extends BaseTest {
 		commonMethodPage.selectCoverageTypeApplicantSpouse1_S069D(individualCoverageHRA);
 		commonMethodPage.selectCoverageTypeApplicantSpouse2_S069D(QSEHRA);
 
-		commonMethodPage.indiviualStartDate_S069D(indivitualStartDate);
-		commonMethodPage.indiviualNoticeDate_S069D(indivitualNoticeDate);
+		commonMethodPage.individualStartDate_S069D(indivitualStartDate);
+		commonMethodPage.individualNoticeDate_S069D(indivitualNoticeDate);
 
 		commonMethodPage.isCurrentlyEnrolledThroughEmployer_S069D(no);
 
-		commonMethodPage.indiviualStartDate2_S069D(indivitualStartDate2);
-		commonMethodPage.indiviualNoticeDate2_S069D(indivitualNoticeDate2);
+		commonMethodPage.individualStartDate2_S069D(indivitualStartDate2);
+		commonMethodPage.individualNoticeDate2_S069D(indivitualNoticeDate2);
 
 		commonMethodPage.isCurrentlyEnrolledThroughEmployer2_S069D(no);
 
@@ -633,7 +637,7 @@ public class TestCase3_I extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 
@@ -669,6 +673,7 @@ public class TestCase3_I extends BaseTest {
 
 		ExtentTestManager.getTest().info("---------------------LOGOUT----------------------------");
 		commonMethodPage.clickLogoutDropDown();
+		commonMethodPage.clickLogout();
 
 	}
 }

@@ -1,3 +1,4 @@
+
 package ede_ph_1;
 
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ import utils.ESTTimeZone;
 import utils.ExtentTestManager;
 import utils.Utility;
 import utils.Wait;
-import webelements.OR;
 
 public class TestCase1_B extends BaseTest {
 	@Test
@@ -19,8 +19,9 @@ public class TestCase1_B extends BaseTest {
 		ExtentTestManager.createTest("Test case 1.B", "Test case 1.B");
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -117,7 +118,6 @@ public class TestCase1_B extends BaseTest {
 		// Open Browser and execute URL
 		loginEdeQa(userName, password, url);
 		CommonMethodPage commonMethodPage = new CommonMethodPage();
-//		commonMethodPage.clickSignBtn();
 		commonMethodPage.clickContinueBtn();
 		commonMethodPage.selectYear(ESTTimeZone.getCurrentYear());
 		commonMethodPage.selectState(state);
@@ -187,6 +187,7 @@ public class TestCase1_B extends BaseTest {
 
 		// Financial coverage
 		ExtentTestManager.getTest().info("---------------------SCREEN S008----------------------------");
+		Wait.wait3Second();
 		commonMethodPage.selectHelpPayingForCoverage(no);
 		commonMethodPage.verifyS008(s008Question);
 		commonMethodPage.clickSaveAndContinueButton();
@@ -236,7 +237,7 @@ public class TestCase1_B extends BaseTest {
 
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 

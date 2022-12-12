@@ -20,8 +20,9 @@ public class TestCase1_C extends BaseTest {
 
 		// Get data from data.properties
 		String url = Utility.getValue("url");
-		String userName = Utility.getValue("userName");
-		String password = Utility.getValue("password");
+		String lnkSignInEDE = Utility.getValue("lnkSignIntoEDE");
+		String userName = Utility.getValue("edeEmail");
+		String password = Utility.getValue("edePassword");
 		String yes = Utility.getValue("yes");
 		String no = Utility.getValue("no");
 		String male = Utility.getValue("male");
@@ -105,9 +106,9 @@ public class TestCase1_C extends BaseTest {
 		String s010AQuestion = Utility.getFromTextProperties("s010AQuestion");
 		String s010ADrawerHeading = Utility.getFromTextProperties("s010ADrawerHeading");
 		String s010ADrawerContent = Utility.getFromTextProperties("s010ADrawerContent");
-		String s026Question = "What’s" + " " + applicantFullName + "'s" + " "
+		String s026Question = "Whatï¿½s" + " " + applicantFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
-		String s026Questionson = "What’s" + " " + sonFullName + "'s" + " "
+		String s026Questionson = "Whatï¿½s" + " " + sonFullName + "'s" + " "
 				+ Utility.getFromTextProperties("s026Question");
 		String s026DrawerContent = Utility.getFromTextProperties("s026DrawerContent");
 		String s026DrawerHeading = Utility.getFromTextProperties("s026DrawerHeading");
@@ -322,7 +323,7 @@ public class TestCase1_C extends BaseTest {
 
 		// Marital status
 		ExtentTestManager.getTest().info("---------------------SCREEN S026----------------------------");
-		commonMethodPage.verifyS026(s026Question, s026DrawerHeading, s026DrawerContent);
+		//commonMethodPage.verifyS026(s026Question, s026DrawerHeading, s026DrawerContent);
 		commonMethodPage.selectMaritalStatus(single);
 		commonMethodPage.clickSaveAndContinueButton();
 
@@ -371,7 +372,9 @@ public class TestCase1_C extends BaseTest {
 		commonMethodPage.liveWithAnotherParent_S030(no);
 		commonMethodPage.clickSaveAndContinueButton();
 		Wait.wait5Second();
+		
 		ExtentTestManager.getTest().info("---------------------SCREEN S043----------------------------");
+		Wait.wait3Second();
 		commonMethodPage.clickSaveAndContinueButton();
 
 		// NON-Magi Questions
@@ -379,18 +382,22 @@ public class TestCase1_C extends BaseTest {
 		commonMethodPage.verifyS045Question(s045Question1, s045Question2);
 		commonMethodPage.clickSaveAndContinueButton();
 
-		// Medicaid and CHIP
-		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
-		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
-		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
-		commonMethodPage.clickSaveAndContinueButton();
-
+		
 		// Medicaid and CHIP ended or end soon
 		ExtentTestManager.getTest().info("---------------------SCREEN S049----------------------------");
 		commonMethodPage.verifyS049(s046QuestionMedicad, s046QuestionCHIP);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P1(no);
 		commonMethodPage.haveMedicaidOrChipEndedOrEndedSoon_S049_P2(no);
 		commonMethodPage.clickSaveAndContinueButton();
+
+
+		// Medicaid and CHIP
+		ExtentTestManager.getTest().info("---------------------SCREEN S046----------------------------");
+		commonMethodPage.verifyS046(s046QuestionMedicad, s046QuestionCHIP, s046DrawerHeading, s046DrawerContent);
+		commonMethodPage.foundNotEligibleMedicaidOrCHIP_S046(noneOfThese);
+		commonMethodPage.clickSaveAndContinueButton();
+
+
 
 		// S050A
 		ExtentTestManager.getTest().info("---------------------SCREEN S050A----------------------------");
@@ -423,26 +430,26 @@ public class TestCase1_C extends BaseTest {
 		// Income verification
 		ExtentTestManager.getTest().info("---------------------SCREEN S059----------------------------");
 		// calculate monthly income
-//						Float yearlyIncome = Float.parseFloat(incomeAmount);
-//						Float income = yearlyIncome / 12;
-//						String monthlyIncome = String.format("%.2f", income);
-//						System.out.println(monthlyIncome);
+		//						Float yearlyIncome = Float.parseFloat(incomeAmount);
+		//						Float income = yearlyIncome / 12;
+		//						String monthlyIncome = String.format("%.2f", income);
+		//						System.out.println(monthlyIncome);
 		//
-//						// format yearly income
-//						String yearIncome =String.format("%.2f", yearlyIncome);
-//						System.out.println(yearIncome);
+		//						// format yearly income
+		//						String yearIncome =String.format("%.2f", yearlyIncome);
+		//						System.out.println(yearIncome);
 
-//						String monthlyIncomeFound = commonMethodPage.getMonthlyIncome();
-//						ExtentTestManager.getTest().info("Expected: " + monthlyIncome);
-//						ExtentTestManager.getTest().info("Found: " + monthlyIncomeFound);
-//						Assert.assertEquals(monthlyIncomeFound, monthlyIncome, "Failed to verified: " + monthlyIncomeFound);
-//						ExtentTestManager.getTest().info("Verified: " + monthlyIncomeFound);
+		//						String monthlyIncomeFound = commonMethodPage.getMonthlyIncome();
+		//						ExtentTestManager.getTest().info("Expected: " + monthlyIncome);
+		//						ExtentTestManager.getTest().info("Found: " + monthlyIncomeFound);
+		//						Assert.assertEquals(monthlyIncomeFound, monthlyIncome, "Failed to verified: " + monthlyIncomeFound);
+		//						ExtentTestManager.getTest().info("Verified: " + monthlyIncomeFound);
 		//
-//						String yearlyIncomeFound = commonMethodPage.getYearlyIncome();
-//						ExtentTestManager.getTest().info("Expected: " + yearIncome);
-//						ExtentTestManager.getTest().info("Found: " + yearlyIncomeFound);
-//						Assert.assertEquals(yearlyIncomeFound, yearIncome, "Failed to verified: " + yearlyIncomeFound);
-//						ExtentTestManager.getTest().info("Verified: " + yearlyIncomeFound);
+		//						String yearlyIncomeFound = commonMethodPage.getYearlyIncome();
+		//						ExtentTestManager.getTest().info("Expected: " + yearIncome);
+		//						ExtentTestManager.getTest().info("Found: " + yearlyIncomeFound);
+		//						Assert.assertEquals(yearlyIncomeFound, yearIncome, "Failed to verified: " + yearlyIncomeFound);
+		//						ExtentTestManager.getTest().info("Verified: " + yearlyIncomeFound);
 
 		commonMethodPage.incomeVerification_S059(yes);
 		commonMethodPage.clickSaveAndContinueButton();
@@ -493,7 +500,7 @@ public class TestCase1_C extends BaseTest {
 		// S084
 		ExtentTestManager.getTest().info("---------------------SCREEN S084----------------------------");
 		Wait.wait5Second();
-		commonMethodPage.loseQulifyingHealthCovUpcoming_S084(noneOfThese);
+		commonMethodPage.loseQualifyingHealthCovUpcoming_S084(noneOfThese);
 		commonMethodPage.verifyS084(s084Question, s084DrawerHeading);
 		commonMethodPage.clickSaveAndContinueButton();
 
